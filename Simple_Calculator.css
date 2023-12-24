@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(33, 33, 33);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.calculatorFrame {
+    background-color: rgb(79, 79, 79);
+    border-radius: 10px;
+    height: 100%;
+    max-height: 540px;
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    flex-direction: column;
+}
