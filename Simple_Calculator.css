@@ -11,9 +11,43 @@ body {
     background-color: rgb(79, 79, 79);
     border-radius: 10px;
     height: 100%;
-    max-height: 540px;
+    max-height: 640px;
     width: 100%;
     max-width: 960px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+#displayScreen {
+    background-color: rgb(175, 175, 175);
+    height: 20%;
+    width: 95%;
+    border: 5px solid grey;
+    box-sizing: border-box;
+    border-radius: 10px;
+    
+}
+
+#calculatorButtons {
+    background-color: rgb(79, 79, 79);
+    height: 70%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    padding-top: 5px;
+    
+}
+
+button {
+    background-color: lightgray;
+    height: 20%;
+    width: 22%;
+    border-radius: 5px;
 }
