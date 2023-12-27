@@ -20,7 +20,7 @@ let isCalculatorOn = false;
 let currentNumber = '';
 let result = 0;
 let operator = null;
-let result2 = 0;
+
 
 for (const button of buttons) {
      button.addEventListener('click', function() {
@@ -50,14 +50,18 @@ for (const button of buttons) {
                     result = currentNumber;
                     console.log("result", result);
                     currentNumber = '';
+
+               } else if (btnText === '=') {
+                    if (operator === '+') {
+                         result = parseInt(result) + parseInt(currentNumber);
+                         
+                         console.log("result", result);
+                    }
+                    currentNumber = result;
+                    displayScreen.textContent = currentNumber;
                }
 
-               if (operator === '+') { //Adding twice for some reason? 
-                    console.log("result2*", result2); // result2 = 0
-                    console.log("result*", result);// ?
-                    result2 = parseInt(result2) + parseInt(result);
-                    console.log("result2", result2);
-               }
+
 
           }
      })
