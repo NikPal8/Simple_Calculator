@@ -15,6 +15,7 @@ let currentNumber = '';
 let result = 0;
 let operator = null;
 let calculation = 0;
+let add = 0;
 
 
 for (const button of buttons) {
@@ -44,15 +45,24 @@ for (const button of buttons) {
                     
                     
                
-               }  else if (['+', '-', 'x', '/'].includes(btnText)) {
-                    
-                    if (operator === '+') {
-                         console.log("what is result:", result);
-                         console.log("what is currentNumber:", currentNumber);
-                         btnText.textContent = '=';
+               }  else if (['+', '-', 'x', '/'].includes(btnText)) { // Can't add 2 values here, this needs to be '+' to execute. enter:2 + enter: + (this runs) enter:2, this does not run, therefore won't add values. 
+                    operator = btnText;
+                    console.log(btnText);
+                    console.log("currentNumber value:", currentNumber)
+                    if (operator === '+') { 
+                         // console.log("what is result:", result);
+                         // console.log("what is currentNumber:", currentNumber);
+                         // btnText.textContent = '=';
                          // btnText = '=' 
-                         // console.log("btnText", btnText);
+                         console.log("what is btnText:", btnText);
+
+                         result =  parseInt(result) + parseInt(currentNumber);
+                         // add = parseInt(add) + parseInt(result);
                          currentNumber = '';
+                         // console.log("what is result2:", result);
+                         console.log("result", result);
+                         
+                         
                     } else {
                          
                          // console.log("this result", result);
@@ -67,11 +77,12 @@ for (const button of buttons) {
                     
                     
                } else if (btnText === '=') {
-                    console.log("before + :currentNumber", currentNumber);
-                    console.log("before + :result", result);
+                    // console.log("before + :currentNumber", currentNumber);
+                    // console.log("before + :result", result);
                     if (operator === '+') {
                          result = parseInt(result) + parseInt(currentNumber);
-                         console.log("result", result);
+                         // console.log("result", result);
+                         // console.log("test");
                          
 
                     } else if (operator === '-') {
@@ -85,8 +96,9 @@ for (const button of buttons) {
 
                     }
                     // console.log("result", result);
-                    currentNumber = result;
-                    displayScreen.textContent = currentNumber;
+                    // currentNumber = result;
+                    displayScreen.textContent = result;
+                    
                     // console.log("currentNumber", currentNumber);
                }
 

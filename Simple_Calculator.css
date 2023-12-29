@@ -56,3 +56,19 @@ button {
     border-radius: 5px;
     font-size: 2rem;
 }
+
+#orange {
+    background-color: orange;
+    color: rgb(94, 94, 94);
+}
+#orange:hover {
+    background-color: rgb(255, 192, 76);
+}
+
+button:hover {
+    background-color: aliceblue;
+}
+
+#btnClicked {
+    background-color: aquamarine;
+}
