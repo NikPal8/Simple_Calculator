@@ -167,7 +167,15 @@ for (const button of buttons) {
                     // console.log("currentNumber", currentNumber);
                     displayScreen.textContent = currentNumber;
                     console.log("operator", operator);
-     
+               } else if (['+', '-', 'x', '/'].includes(btnText)) {
+                    operator = btnText;
+                    result = currentNumber;
+                    console.log("result", result);
+                    currentNumber = '';
+
+                    // console.log("operator", operator);
+
+
 
                }  else if (['+', '-', 'x', '/'].includes(btnText)) {
 
