@@ -29,6 +29,10 @@ body {
     border: 5px solid grey;
     box-sizing: border-box;
     border-radius: 10px;
+    font-size: 3rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     
 }
 
@@ -50,4 +54,5 @@ button {
     height: 20%;
     width: 22%;
     border-radius: 5px;
+    font-size: 2rem;
 }
