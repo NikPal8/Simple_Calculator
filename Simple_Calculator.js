@@ -131,10 +131,7 @@ let isCalculatorOn = false;
 let currentNumber = '';
 let result = 0;
 let operator = null;
-let calculation = 0;
-let add = 0;
-const testArray = [];
-let test = 0;
+let result2 = 0;
 
 for (const button of buttons) {
      
@@ -173,68 +170,18 @@ for (const button of buttons) {
                     console.log("result", result);
                     currentNumber = '';
 
-                    // console.log("operator", operator);
-
-
-
-               }  else if (['+', '-', 'x', '/'].includes(btnText)) {
-
-                    if (operator === '+') {
-                         console.log("what is result:", result);
-                         console.log("what is currentNumber:", currentNumber);
-                         btnText.textContent = '=';
-                         // btnText = '=' 
-                         // console.log("btnText", btnText);
-                         currentNumber = '';
-                    } else {
-
-                         // console.log("this result", result);
-                         operator = btnText;
-                         // console.log("operator", operator);
-                         result = currentNumber;
-                         // console.log("result", result);
-                         currentNumber = '';
-                    }
-
-
-
-
                } else if (btnText === '=') {
-                    console.log("before + :currentNumber", currentNumber);
-                    console.log("before + :result", result);
                     if (operator === '+') {
                          result = parseInt(result) + parseInt(currentNumber);
-
+                         
                          console.log("result", result);
-
-
-                    } else if (operator === '-') {
-                         result = parseInt(result) - parseInt(currentNumber);
-
-                    } else if (operator === 'x') {
-                         result = parseInt(result) * parseInt(currentNumber);
-
-                    } else if (operator === '/') {
-                         result = parseInt(result) / parseInt(currentNumber);
-
                     }
-                    // console.log("result", result);
                     currentNumber = result;
                     displayScreen.textContent = currentNumber;
-                    // console.log("currentNumber", currentNumber);
-
-               } else if (btnText === 'C') { //clears all values
-                    console.log("Clear Button", btnText);
-                    result = 0;
-                    currentNumber = '';
-                    displayScreen.textContent = "";
-                    operator = null;
                }
 
+
+
           }
-
-
-
-          
      })
 }
