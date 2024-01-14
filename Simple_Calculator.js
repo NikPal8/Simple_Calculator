@@ -21,74 +21,72 @@ let isCalculatorOn = false;
 let currentNumber = '';
 let result = 0;
 let operator = null;
-let calculation = 0;
-let add = 0;
-const testArray = [];
 let test = 0;
+let incrementor = 0;
 
 for (const button of buttons) {
-     
      button.addEventListener('click', function() {
           let btnText = button.textContent;
           
           if (btnText === 'OFF') {
                button.textContent = 'On';
                isCalculatorOn = true;
+               document.querySelector('#btnOnOff').style.backgroundColor = 'greenyellow';
                
-
+               
           } else if (btnText === 'On') {
                button.textContent = 'OFF';
                isCalculatorOn = false;
-              
+               document.querySelector('#btnOnOff').style.backgroundColor = 'lightcoral';
+               displayScreen.textContent = '';
           }
+          
 
 
 //Need to enter equals after every button click
 
           
           if (isCalculatorOn === true) {
-               console.log("result at top", result);
+               console.log("1.", operator);
+               console.log("1.", result);
                if (!isNaN(btnText)) {
+                    console.log("2.", operator);
                     currentNumber = currentNumber + btnText;
-                    displayScreen.textContent = currentNumber;
-                    
+                    // displayScreen.textContent = currentNumber;
+                    console.log("3.", operator);
                     
                } 
                
                if (btnText === '=') {
-                    currentNumber = parseInt(result);
+                    // incrementor = parseInt(result);
+                    // console.log("2.", result);
                     
-                    if (operator === '+') { 
-                         test = parseInt(test) + parseInt(currentNumber);
-                    }
-
-                    if (operator === '-') { 
-                         test = parseInt(test) - parseInt(currentNumber);
-                    }
-                    
-                    
-                    if (operator === 'x') { 
-                         if (test === 0){
-                              test = parseInt(result);//or test could just equal currentNumber
-                    
-                         } else {
-                              console.log(`test(${test}) = result(${result}) x currentNumber (${currentNumber})`);
-                              test = parseInt(result) * parseInt(currentNumber);
-                              currentNumber = parseInt(result);
-                         }
-                         
-                         // console.log("Test:",test);
-
-                    }
-//--------------------------------------EQUALS if statement------------------------------------------                  
-                    // if (operator === '/') { 
-                    //      test = parseInt(test) / parseInt(currentNumber);
+                    console.log("4.", operator);
+                    // if (operator === '+') { 
+                    //      incrementor = parseInt(incrementor) + parseInt(currentNumber);
                     // }
+
+                    // if (operator === '-') { 
+                    //      incrementor = parseInt(incrementor) - parseInt(currentNumber);
+                    // }
+                    
+                    
+                    // if (operator === 'x') { 
+                         
+
+                    // }
+                    
+                    // if (operator === '/') { 
+                    //      incrementor = parseInt(incrementor) / parseInt(currentNumber);
+                    // }
+//--------------------------------------EQUALS if statement------------------------------------------                  
                     btnText = operator;//Changed else if statements to if, this executes below if statement.
-                   
+                    // console.log("3.", result);
+                    // console.log("result", result, "current", currentNumber);
+                    console.log("5.", operator);
                } else if (btnText === 'C') { //clears all values
                     result = 0;
-                    test = 0;
+                    incrementor = 0;
                     currentNumber = '';
                     displayScreen.textContent = "";
                     operator = null;
@@ -96,65 +94,67 @@ for (const button of buttons) {
 //------------------------------- + - x / if statement------------------------------------------------
 
                if (['+', '-', 'x', '/'].includes(btnText)) { // Can't add 2 values here, this needs to be '+' to execute. enter:2 + enter: + (this runs) enter:2, this does not run, therefore won't add values. 
-                    test = parseInt(currentNumber);
+                    console.log("6.", operator);
                     operator = btnText;
-                    
+                    console.log("4.", result, "current:", currentNumber);
+                    console.log("7.", operator);
                     if (operator === '+') {
-                         // console.log("result", result);
                          result = parseInt(result) + parseInt(currentNumber);
-                         
                          
                          
                     } else if (operator === '-') {
                          result = parseInt(result) - parseInt(currentNumber);
                          
-                         
-
                     } else if (operator === 'x') {
-
-                         if (result === 0) {
-                              result = parseInt(currentNumber);//or result could just equal currentNumber
-                         } else {
-                              result = parseInt(result) * parseInt(currentNumber);//When I hit times it automatically multiplies the result by current number!
-                              // test = parseInt(result);
-                              
+                         console.log("5.", result, "current:", currentNumber);
+                         if (currentNumber === 0) {
+                              currentNumber = 1;
                          }
-                         
-                         
-                         displayScreen.textContent = result;
+                         if (result === 0) {
+                              console.log("6.", result, "current:", currentNumber);
+                              result = parseInt(currentNumber);
+                              console.log("7.", result, "current:", currentNumber);
+                         } else {
+                              console.log("8.", result, "current:", currentNumber);
+                              result = parseInt(result) * parseInt(currentNumber);
+                              console.log("9.", result);
 
-
+                         }
+                         console.log("10.", result);
                     } else if (operator === '/') {
-                         result = parseInt(result) / parseInt(currentNumber);
-                         // currentNumber = 1; 
+                         
+                         if (currentNumber === 0) {
+                              currentNumber = 1;
+                         }
+                         if (result === 0) {
+                              
+                              result = parseInt(currentNumber);
+                              
+                         } else {
+                              
+                              result = Math.round(parseInt(result) / parseInt(currentNumber));
+                              
+
+                         }
                     }
-                    testArray.push(`currentNumber: ${currentNumber} result: ${result} test: ${test}`);
-                    console.log(testArray); //When I enter times (x) it goes to x.includes if statement! test = 0 as eqauls hasn't been clicked!
-                    // currentNumber = 0; //This is the issue, when we hit times after = we are multipkying by 0
-                    
-                    
-                    // console.log("test add calculation", test);
-                    // test = currentNumber;
-                    // console.log("Test:", test);
+
+                    console.log("8.", operator);
+                    console.log("11.", result);
                     currentNumber = 0;
                     
                     
                     
                     
+                    
                } 
+               console.log("12.", result);   
+               displayScreen.textContent = result;//At this point and after '=' click we get this value. Need to capture it
+               console.log("13.", result);
                
-                  
-               displayScreen.textContent = result;
-               console.log("result at bottom", result);
-               
-               // console.log("currentNumber", currentNumber);
-               // console.log("test", test);
-               // console.log("result", result)
           }
                     
                     
-              
-          
+    
      })
      
 }
