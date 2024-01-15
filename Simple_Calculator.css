@@ -57,22 +57,33 @@ body {
 }
 
 button {
-    background-color: lightgray;
+    /* background-color: grey; */
+    background: none;
+    color: rgb(112, 112, 112);
     height: 17%;
     width: 20%;
     border-radius: 5px;
     font-size: 2rem;
+    
 }
 #btnOrange {
     background-color: orange;
 }
 
-#blue {
-    background-color: grey;
-    border: 5px solid lightblue;
+
+
+#blueBtns {
+    /* background-color: grey; */
+    /* border: 5px solid lightblue; */
+    /* color: white; */
     border-radius: 5px;
-    color: white;
-    text-shadow: 0px 0px 1px #000;
+    /* text-shadow: 0px 0px 1px lightblue; */
     font-weight: bold;
 }
 
+.buttonsOn {
+    background-color: rgb(95, 95, 95);
+    box-shadow: 0px 0px 2px 2px lightblue;
+    color: lightblue;
+    text-shadow: 0px 0px 5px lightblue;
+}

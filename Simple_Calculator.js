@@ -21,8 +21,8 @@ let isCalculatorOn = false;
 let currentNumber = '';
 let result = 0;
 let operator = null;
-let test = 0;
 let incrementor = 0;
+
 
 for (const button of buttons) {
      button.addEventListener('click', function() {
@@ -32,6 +32,9 @@ for (const button of buttons) {
                button.textContent = 'On';
                isCalculatorOn = true;
                document.querySelector('#btnOnOff').style.backgroundColor = 'greenyellow';
+               for (const button of buttons) {
+                    button.classList.add('buttonsOn');
+               }
                
                
           } else if (btnText === 'On') {
@@ -39,12 +42,15 @@ for (const button of buttons) {
                isCalculatorOn = false;
                document.querySelector('#btnOnOff').style.backgroundColor = 'lightcoral';
                displayScreen.textContent = '';
+               for (const button of buttons) {
+                    button.classList.remove('buttonsOn');
+               }
           }
           
 
 
 //Need to enter equals after every button click
-
+          
           
           if (isCalculatorOn === true) {
                console.log("1.", operator);
